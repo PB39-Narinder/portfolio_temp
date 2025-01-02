@@ -1,0 +1,29 @@
+[data-theme="dark"] {
+    --primary-gradient: linear-gradient(45deg, #ff0099, #ff6a00);
+    --secondary-gradient: linear-gradient(45deg, #00ff88, #00ffee);
+    --accent-color: #ff0099;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --background: #121212;
+    --card-background: #1e1e1e;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+[data-theme="dark"] .fa-moon {
+    display: none;
+}
+
+[data-theme="light"] .fa-sun {
+    display: none;
+} 

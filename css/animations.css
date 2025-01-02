@@ -1,0 +1,231 @@
+/* Global Animation Variables */
+:root {
+    --glitch-duration: 3s;
+    --scan-duration: 2s;
+    --pulse-duration: 2s;
+}
+
+/* Cursor and Mouse Effects */
+.cursor-trail {
+    pointer-events: none;
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyber-blue);
+    mix-blend-mode: screen;
+    transition: all 0.1s ease;
+    z-index: 9999;
+}
+
+/* Navigation Animations */
+.nav-logo .glitch {
+    animation: textGlitch 5s infinite;
+}
+
+@keyframes textGlitch {
+    0% { text-shadow: 0.05em 0 0 var(--cyber-pink), -0.05em -0.025em 0 var(--cyber-blue); }
+    14% { text-shadow: 0.05em 0 0 var(--cyber-pink), -0.05em -0.025em 0 var(--cyber-blue); }
+    15% { text-shadow: -0.05em -0.025em 0 var(--cyber-pink), 0.025em 0.025em 0 var(--cyber-blue); }
+    49% { text-shadow: -0.05em -0.025em 0 var(--cyber-pink), 0.025em 0.025em 0 var(--cyber-blue); }
+    50% { text-shadow: 0.025em 0.05em 0 var(--cyber-pink), 0.05em 0 0 var(--cyber-blue); }
+    99% { text-shadow: 0.025em 0.05em 0 var(--cyber-pink), 0.05em 0 0 var(--cyber-blue); }
+    100% { text-shadow: -0.025em 0 0 var(--cyber-pink), -0.025em -0.025em 0 var(--cyber-blue); }
+}
+
+/* Hero Section Animations */
+.grid-background {
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: perspective(500px) rotateX(45deg) translateY(-50%) translateX(0); }
+    100% { transform: perspective(500px) rotateX(45deg) translateY(-50%) translateX(-30px); }
+}
+
+.cyber-glitch-title {
+    animation: glitchText 3s infinite;
+}
+
+@keyframes glitchText {
+    0% { transform: none; opacity: 1; }
+    7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
+    10% { transform: none; opacity: 1; }
+    27% { transform: none; opacity: 1; }
+    30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
+    35% { transform: none; opacity: 1; }
+    52% { transform: none; opacity: 1; }
+    55% { transform: skew(-1deg, 0.2deg); opacity: 0.75; }
+    50% { transform: none; opacity: 1; }
+    72% { transform: none; opacity: 1; }
+    75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
+    80% { transform: none; opacity: 1; }
+    100% { transform: none; opacity: 1; }
+}
+
+.typing-text {
+    overflow: hidden;
+    border-right: 2px solid var(--cyber-blue);
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--cyber-blue) }
+}
+
+/* Skill Chips Animation */
+.skill-chip {
+    animation: chipFloat 3s ease-in-out infinite;
+}
+
+.skill-chip:nth-child(2) { animation-delay: 0.2s; }
+.skill-chip:nth-child(3) { animation-delay: 0.4s; }
+.skill-chip:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes chipFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Project Cards Animation */
+.cyber-card {
+    animation: cardPulse 4s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.cyber-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes cardPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.4); }
+}
+
+.card-overlay {
+    animation: overlayGlow 2s ease-in-out infinite;
+}
+
+@keyframes overlayGlow {
+    0%, 100% { background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 19, 0.8) 100%); }
+    50% { background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 19, 0.9) 100%); }
+}
+
+/* Contact Form Animations */
+.terminal-window {
+    animation: terminalBoot 1s ease-out;
+}
+
+@keyframes terminalBoot {
+    0% { transform: scale(0.95); opacity: 0; }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.cyber-input:focus {
+    animation: inputPulse 2s infinite;
+}
+
+@keyframes inputPulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(0, 255, 255, 0.4); }
+}
+
+/* Footer Animations */
+.network-node.active {
+    animation: nodeActive 3s infinite;
+}
+
+@keyframes nodeActive {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.stat-value.online {
+    animation: statusBlink 2s infinite;
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Global Section Entry Animations */
+.cyber-hero,
+.cyber-projects,
+.cyber-contact,
+.cyber-footer {
+    animation: sectionFadeIn 1s ease-out;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scanner Effects */
+.cyber-scanner {
+    animation: scannerMove var(--scan-duration) linear infinite;
+}
+
+@keyframes scannerMove {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Loading State Animations */
+.loading::after {
+    content: '';
+    animation: loadingDots 1.5s infinite;
+}
+
+@keyframes loadingDots {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+    100% { content: ''; }
+}
+
+/* Hover Animations */
+.cyber-btn:hover,
+.cyber-link:hover,
+.cyber-social:hover {
+    animation: buttonGlow 1s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+}
+
+/* Project card hover animations */
+.cyber-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.cyber-card:hover .card-body img {
+    transform: scale(1.1);
+}
+
+.cyber-card:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+} 
